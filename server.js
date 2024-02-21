@@ -1,8 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
+
+app.use(cors({
+    origin: '*'
+}));
 
 require('./routes/pratos.js')(app);
 require('./routes/pedidos.js')(app);
